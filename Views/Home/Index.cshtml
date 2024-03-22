@@ -1,0 +1,26 @@
+﻿@model List<Smart_Cities.Models.Ontologie.Ontology>
+
+<h1>Données de l'ontologie</h1>
+
+<ul>
+    @foreach (var ontology in Model)
+    {
+        <li>
+            <h2>Ontology</h2>
+            <ul>
+                @foreach (var subClassOf in ontology.SubClassOf)
+                {
+                    <li>
+                        <h3>SubClassOf</h3>
+                        <ul>
+                            @foreach (var classItem in subClassOf.Classes)
+                            {
+                                <li>@classItem.IRI</li>
+                            }
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
